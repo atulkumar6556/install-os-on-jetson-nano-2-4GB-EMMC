@@ -20,17 +20,49 @@ This setup ensures a **stable and fully functional Ubuntu environment** specific
 
 Before you begin, ensure you have the following environment ready:
 
-1. **Operating System:**  
+* =) **Operating System:**  
    - Ubuntu **20.04.6 LTS** (recommended)
    - Other modern Linux distributions may work but are not officially tested.
 
-2. **System Requirements:**
+* =) **System Requirements:**
    - Minimum 4 GB RAM  
    - Minimum 2 CPU cores  
    - At least 10 GB free disk space  
    - Internet connectivity for package installation
 
-3. **Required Packages:**
-   ```bash
-   sudo apt-get update
-   
+* =) **Required Packages:**
+
+
+1. ```sudo apt-get update -y```  
+
+2. ```sudo apt upgrade -y```
+
+3. ```sudo mkdir sources_nano```
+  
+4. ```cd sources_nano```
+
+ ## 💻 open browser and hit the given url (on jetson nano )-
+ -----------------------------------------------------------------------------------------------------------------
+
+    https://developer.nvidia.com/embedded/l4t/r32_release_v7.2/t210/jetson-210_linux_r32.7.2_aarch64.tbz2
+
+
+    https://developer.nvidia.com/embedded/l4t/r32_release_v7.2/t210/tegra_linux_sample-root-filesystem_r32.7.2_aarch64.tbz2
+    
+-------------------------------------------------------------------------------------------------------------------
+Move the Jetpack to a folder and extract it 
+
+5. ```sudo mv ~/Downloads/Jetson-210_Linux_R32.7.2_aarch64.tbz2 ~/sources_nano/```
+
+6. ```sudo mv ~/Downloads/Tegra_Linux_Sample-Root-Filesystem-R32.7.2_aarch64.tbz2 ~/sources_nano/```
+
+Unzip resource
+
+7. ```sudo tar -xjf Jetson-210_Linux_R32.7.2_aarch64.tbz2```
+
+8. ```cd Linux_for_Tegra/rootfs/```
+9. ```sudo tar -xjf ../../Tegra_Linux_Sample-Root-Filesystem_R32.7.2_aarch64.tbz2```
+10. ```cd ../```
+11. ```sudo ./apply_binaries.sh```
+12. ```sudo mkdir sources_nano```
+13. ```sudo mkdir sources_nano```
