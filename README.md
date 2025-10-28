@@ -40,6 +40,7 @@ Before you begin, ensure you have the following environment ready:
 3. ```sudo mkdir sources_nano```
   
 4. ```cd sources_nano```
+   
 
  ## 💻 open browser and hit the given url (on jetson nano )-
  -----------------------------------------------------------------------------------------------------------------
@@ -64,5 +65,19 @@ Unzip resource
 9. ```sudo tar -xjf ../../Tegra_Linux_Sample-Root-Filesystem_R32.7.2_aarch64.tbz2```
 10. ```cd ../```
 11. ```sudo ./apply_binaries.sh```
-12. ```sudo mkdir sources_nano```
-13. ```sudo mkdir sources_nano```
+12. ```cd ..```
+13. ```wget https://developer.nvidia.com/downloads/embedded/L4T/r32_Release_v7.5/overlay_32.7.5_PCN211181.tbz2```
+14. ```sudo tar -xjf overlay_32.7.5_PCN211181.tbz2```
+
+After this prepare your jetson nano and boot into recovery mode - 
+
+1. Short-connect the FC REC and GND pins with a jump cap or DuPont wire, located below the core board, as shown below.
+2. Connect the DC power supply to the round power supply port and wait a while.
+3. Connect the Jetson Nano's Micro USB port to the Ubuntu host ( LINUX SYSTEM ) with a USB cable (note that it is a data cable).
+4. After entering recovery mode run the given command on terminal into host linux system -
+
+* ```cd ~/sources_nano/Linux_for_Tegra```
+* ```sudo ./flash.sh jetson-nano-emmc mmcblk0p1```
+
+After successful flashing remove all the jumper cap/wire and reboot the jetson nano by unplug the power supply . 
+
