@@ -1,5 +1,6 @@
 # install-os-on-jetson-nano-2-4GB-EMMC
-  * EMMC
+  * 💾 EMMC info
+
 
 ## 🧩 Overview
 
@@ -42,7 +43,7 @@ Before you begin, ensure you have the following environment ready:
 4. ```cd sources_nano```
    
 
- ## 💻 open browser and hit the given url (on jetson nano )-
+ ## 💻 open browser and hit the given url (on linux )-
  -----------------------------------------------------------------------------------------------------------------
 
     https://developer.nvidia.com/embedded/l4t/r32_release_v7.2/t210/jetson-210_linux_r32.7.2_aarch64.tbz2
@@ -51,13 +52,13 @@ Before you begin, ensure you have the following environment ready:
     https://developer.nvidia.com/embedded/l4t/r32_release_v7.2/t210/tegra_linux_sample-root-filesystem_r32.7.2_aarch64.tbz2
     
 -------------------------------------------------------------------------------------------------------------------
-Move the Jetpack to a folder and extract it 
+📁 Move the Jetpack to a folder and extract it 
 
 5. ```sudo mv ~/Downloads/Jetson-210_Linux_R32.7.2_aarch64.tbz2 ~/sources_nano/```
 
 6. ```sudo mv ~/Downloads/Tegra_Linux_Sample-Root-Filesystem-R32.7.2_aarch64.tbz2 ~/sources_nano/```
 
-Unzip resource
+📚 Unzip resource
 
 7. ```sudo tar -xjf Jetson-210_Linux_R32.7.2_aarch64.tbz2```
 
@@ -69,15 +70,15 @@ Unzip resource
 13. ```wget https://developer.nvidia.com/downloads/embedded/L4T/r32_Release_v7.5/overlay_32.7.5_PCN211181.tbz2```
 14. ```sudo tar -xjf overlay_32.7.5_PCN211181.tbz2```
 
-After this prepare your jetson nano and boot into recovery mode - 
+🛠️ After this prepare your jetson nano and boot into recovery mode - 
 
-1. Short-connect the FC REC and GND pins with a jump cap or DuPont wire, located below the core board, as shown below.
-2. Connect the DC power supply to the round power supply port and wait a while.
-3. Connect the Jetson Nano's Micro USB port to the Ubuntu host ( LINUX SYSTEM ) with a USB cable (note that it is a data cable).
-4. After entering recovery mode run the given command on terminal into host linux system -
+1. Short-connect the **FC REC** and **GND** pins with a jump cap or DuPont wire, located below the core board, as shown below.
+2. Connect the **DC power supply** to the round power supply port and wait a while.
+3. Connect the Jetson Nano's **Micro USB port** to the Ubuntu host ( LINUX SYSTEM ) with a USB cable (note that it is a data cable).
+4. After entering **recovery mode** run the given command on **terminal** into host linux system -
 
 * ```cd ~/sources_nano/Linux_for_Tegra```
 * ```sudo ./flash.sh jetson-nano-emmc mmcblk0p1```
 
-After successful flashing remove all the jumper cap/wire and reboot the jetson nano by unplug the power supply . 
+📀 After successful flashing remove all the jumper cap/wire and reboot the jetson nano by unplug the power supply . 
 
