@@ -33,7 +33,7 @@ Before you begin, ensure you have the following environment ready:
 
 
 
-## 🧾 Now RUN these command on linux system ( insure you are connected internet  🌐 )- 
+## 🧾 Now RUN these command on linux system ( ensure you are connected internet  🌐 )- 
 
 1. ```sudo apt-get update -y```  
 
