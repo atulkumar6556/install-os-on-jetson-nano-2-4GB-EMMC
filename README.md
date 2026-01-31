@@ -123,9 +123,16 @@ sdhci@700b0400   - in this change status=okay and add more line
 
 ```no-mmc;```
 
+👉 save and exit nano editor (Ctrl + s ,  then Ctrl +x )
+
+And run -
+
 ```sudo dtc -I dts -O dtb -o /tmp/new_kernel.dtb /tmp/nano.dts```
 
 ```sudo cp /tmp/new_kernel.dtb /boot/kernel_tegra210-p3448-0002-p3449-0000-b00.dtb```
+
+
+
 
 ```sudo nano /boot/extlinux/extlinux.conf```
 
@@ -134,6 +141,11 @@ sdhci@700b0400   - in this change status=okay and add more line
 LINUX /boot/Image
 
 ```FDT /boot/kernel_tegra210-p3448-0002-p3449-0000-b00.dtb```
+
+
+👉 save and exit nano editor (Ctrl + s ,  then Ctrl +x )
+
+NOW-
 
 🔄 - Reboot the device 
 
