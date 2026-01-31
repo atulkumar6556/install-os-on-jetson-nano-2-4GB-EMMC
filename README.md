@@ -83,9 +83,13 @@ Before you begin, ensure you have the following environment ready:
 
 📀 After successful flashing remove all the jumper cap/wire and reboot the jetson nano by unplug the power supply . 
 
-# After sucessful boot and user setup 
+  # To Enable  TF card (On Board SD card ) and mount sdcard - 🗄️
 
-run 
+## After sucessful boot and user setup 
+
+🗄️
+
+[run]
 
 ```sudo dtc -I dtb -O dts -o /tmp/nano.dts /boot/kernel_tegra210-p3448-0002-p3449-0000-b00.dtb```
 
@@ -93,26 +97,29 @@ run
 
 ```sudo nano /tmp/nano.dts```
 
-search change all these -
+🔍 search change all these - 🔍
 
 status = "disabled";  to 
 
 ```status = "okay";```
 
-- similarly search all given below and change as shown above status="okay"
+- similarly find all given below and change as shown above status="okay"
  
 sdhci@700b0200
 sdhci@700b0600
 
 sdhci@700b0400   - in this change status=okay and add more line
 
-``` cd-gpios = <0x5b 0xc2 0x8>; ```
-```   sd-uhs-sdr104; ```
-```   sd-uhs-sdr50; ```
-```   sd-uhs-sdr25;```
-```   sd-uhs-sdr12;```
+```
+   cd-gpios = <0x5b 0xc2 0x8>;
+   sd-uhs-sdr104;
+   sd-uhs-sdr50; 
+   sd-uhs-sdr25;
+   sd-uhs-sdr12;
 
-vmmc-supply = <8x4c>:  below this add this line
+```
+
+👉 vmmc-supply = <8x4c>:     ## below this add this line
 
 ```no-mmc;```
 
@@ -122,15 +129,15 @@ vmmc-supply = <8x4c>:  below this add this line
 
 ```sudo nano /boot/extlinux/extlinux.conf```
 
-add one line below 
+👉 add one line below 
 
 LINUX /boot/Image
 
 ```FDT /boot/kernel_tegra210-p3448-0002-p3449-0000-b00.dtb```
 
-reboot the device 
+🔄 - Reboot the device 
 
-sudo reboot
+```sudo reboot```
 
 After reboot check -
 
@@ -169,3 +176,37 @@ zram1        252:1    0 494.5M  0 disk [SWAP]
 zram2        252:2    0 494.5M  0 disk [SWAP]
 zram3        252:3    0 494.5M  0 disk [SWAP]
 ```
+
+👉 💾📁 Now mount the sd card 
+
+```
+sudo umount /mnt/sdcard 2>/dev/null
+sudo rm -rf /mnt/sdcard
+sudo mkdir /mnt/sdcard
+
+```
+
+👉 - now mount
+
+```sudo mount -t auto /dev/mmcblk1p1 /mnt/sdcard```
+
+👉 - check storage - 
+
+```df -h```
+
+👉 - you will ouput -
+
+  ```
+
+  Filesystem      Size  Used Avail Use% Mounted on
+  /dev/mmcblk0p1   14G   14G     0 100% /
+  none            1.7G     0  1.7G   0% /dev
+  tmpfs           2.0G  4.0K  2.0G   1% /dev/shm
+  tmpfs           2.0G   20M  2.0G   1% /run
+  tmpfs           5.0M  4.0K  5.0M   1% /run/lock
+  tmpfs           2.0G     0  2.0G   0% /sys/fs/cgroup
+  tmpfs           396M   16K  396M   1% /run/user/120
+  tmpfs           396M     0  396M   0% /run/user/1000
+  /dev/mmcblk1p1   60G  3.4M   60G   1% /mnt/sdcard
+
+  ```
